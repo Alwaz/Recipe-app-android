@@ -30,7 +30,7 @@ import java.util.Calendar;
 public class UpdateRecipe extends AppCompatActivity {
 
     ImageView recipyImage;
-    EditText res_name, res_description, res_price;
+    EditText res_name, res_description;
     Uri uri;
     String imageUrl;
     String key, oldImageUrl;
@@ -38,7 +38,7 @@ public class UpdateRecipe extends AppCompatActivity {
     DatabaseReference databaseReference;
     StorageReference storageReference;
 
-    String recipename,recipeDescription,recipePrice;
+    String recipename,recipeDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class UpdateRecipe extends AppCompatActivity {
         recipyImage=(ImageView)findViewById(R.id.iv_foodImage);
         res_name = (EditText) findViewById(R.id.txt_recipy_name);
         res_description = (EditText) findViewById(R.id.txt_recipy_description);
-        res_price=(EditText) findViewById(R.id.txt_recipy_price);
+
 
 //      To move data from one activity to another
        Bundle bundle = getIntent().getExtras();
@@ -57,7 +57,7 @@ public class UpdateRecipe extends AppCompatActivity {
           Glide.with(UpdateRecipe.this).load(bundle.getString("oldImage")).into(recipyImage);
           res_name.setText(bundle.getString("recipeNameKey"));
           res_description.setText(bundle.getString("descriptionKey"));
-          res_price.setText(bundle.getString("priceKey"));
+
 
           key = bundle.getString("key");
           oldImageUrl = bundle.getString("oldImage");
@@ -82,7 +82,7 @@ public class UpdateRecipe extends AppCompatActivity {
             uri = data.getData();
             recipyImage.setImageURI(uri);
         } else {
-            Toast.makeText(this,"You Havent pick any picture", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"You Haven't pick any picture", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -91,10 +91,10 @@ public class UpdateRecipe extends AppCompatActivity {
     public void btnUpdateRecipe(View view) {
         recipename = res_name.getText().toString().trim();
         recipeDescription = res_description.getText().toString().trim();
-        recipePrice = res_price.getText().toString();
+
 
         ProgressDialog progressDialogue = new ProgressDialog(this);
-        progressDialogue.setMessage("Recipe Updating...");
+        progressDialogue.setMessage("Updating Recipe...");
         progressDialogue.show();
 
         storageReference = FirebaseStorage.getInstance()
@@ -123,7 +123,6 @@ public class UpdateRecipe extends AppCompatActivity {
         FoodData foodData = new FoodData (
                 recipename,
                 recipeDescription,
-                recipePrice,
                 imageUrl
         );
 

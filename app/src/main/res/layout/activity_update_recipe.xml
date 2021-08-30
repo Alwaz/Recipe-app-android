@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:hint="Enter Recipy Name"
             android:textSize="19sp"
+            android:padding="18dp"
             android:layout_marginTop="20dp"
             android:id="@+id/txt_recipy_name"
             />
@@ -35,22 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description"
+            android:padding="18dp"
             android:layout_marginTop="10dp"
             android:textSize="19sp"
             android:id="@+id/txt_recipy_description"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Price"
-            android:layout_marginTop="10dp"
-            android:textSize="19sp"
-            android:id="@+id/txt_recipy_price"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Select Recipy"
+            android:layout_marginTop="18dp"
             android:textSize="22sp"
             android:backgroundTint="@color/orange"
             android:textColor="@color/white"
@@ -59,6 +55,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginTop="10dp"
             android:text="Update Recipy"
             android:textSize="22sp"
             android:onClick="btnUpdateRecipe"

@@ -8,7 +8,6 @@ public class FoodData {
 
     private String itemName;
     private String itemDescription;
-    private String itemPrice;
     private String  itemImage;
 
     //    to delete recipies
@@ -20,13 +19,12 @@ public class FoodData {
 
     }
 
-    public FoodData(EditText res_name, EditText res_description, EditText res_price, String imageUrl) {
+    public FoodData(EditText res_name, EditText res_description, String imageUrl) {
     }
 
-    public FoodData(String itemName, String itemDescription, String itemPrice, String itemImage) {
+    public FoodData(String itemName, String itemDescription, String itemImage) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-        this.itemPrice = itemPrice;
         this.itemImage = itemImage;
     }
 
@@ -40,9 +38,6 @@ public class FoodData {
         return itemDescription;
     }
 
-    public String getItemPrice() {
-        return itemPrice;
-    }
 
     public String getItemImage() {
         return itemImage;

@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
 
-<!--   Search bar -->
+<!--  For Search bar -->
     <EditText
         android:id="@+id/searchText"
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
         android:layout_marginBottom="15dp"
         android:hint="Search Recipe..."
         android:textSize="22sp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -46,4 +47,12 @@
         android:backgroundTint="@color/orange"
         android:onClick="btn_uploadActivity"
         android:src="@drawable/upload" />
+
+
+
+
+
+
+
+
 </RelativeLayout>

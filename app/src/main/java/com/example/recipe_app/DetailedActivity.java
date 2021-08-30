@@ -22,7 +22,7 @@ import java.util.LongSummaryStatistics;
 
 public class DetailedActivity extends AppCompatActivity {
 
-    TextView  foodDescription,RecipeName,RecipePrice;
+    TextView  foodDescription,RecipeName;
     ImageView foodImage;
     String imgUrl="";
     String key="";
@@ -34,7 +34,7 @@ public class DetailedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailed);
 
         RecipeName=(TextView)findViewById(R.id.txtRecipeName);
-        RecipePrice=(TextView)findViewById(R.id.txtRecipePrice);
+//        RecipeServing=(TextView)findViewById(R.id.txtRecipeServing);
        foodDescription=(TextView)findViewById(R.id.txtDescription);
        foodImage = (ImageView)findViewById(R.id.ivImage2);
 
@@ -43,7 +43,7 @@ public class DetailedActivity extends AppCompatActivity {
         if(mBundle !=null){
 
             RecipeName.setText(mBundle.getString("Name"));
-            RecipePrice.setText(mBundle.getString("Price"));
+//            RecipeServing.setText(mBundle.getString("Serving"));
             foodDescription.setText(mBundle.getString("Description"));
 
 //            key from database will be stored in key
@@ -82,7 +82,7 @@ public class DetailedActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),UpdateRecipe.class)
                 .putExtra("recipeNameKey",RecipeName.getText()
                         .toString()).putExtra("descriptionKey",foodDescription.getText().toString())
-                .putExtra("priceKey",RecipePrice.getText().toString()).putExtra("oldImage",imgUrl)
+              .putExtra("oldImage",imgUrl)
                 .putExtra("key",key)
         );
     }

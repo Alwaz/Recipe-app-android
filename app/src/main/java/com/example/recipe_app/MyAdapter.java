@@ -54,7 +54,6 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
 
         holder.mTitle.setText(myFoodList.get(i).getItemName());
         holder.mDescription.setText(myFoodList.get(i).getItemDescription());
-        holder.mPrice.setText(myFoodList.get(i).getItemPrice());
 
 
 //        to move to next activity
@@ -63,7 +62,6 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
            Intent intent = new Intent(mContext,DetailedActivity.class);
            intent.putExtra("Image", myFoodList.get(holder.getBindingAdapterPosition()).getItemImage());
            intent.putExtra("Name",myFoodList.get(holder.getBindingAdapterPosition()).getItemName());
-           intent.putExtra("Price", myFoodList.get(holder.getBindingAdapterPosition()).getItemPrice());
            intent.putExtra("Description", myFoodList.get(holder.getBindingAdapterPosition()).getItemDescription());
 
            intent.putExtra("keyValue",
@@ -105,7 +103,7 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
 class FoodViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView mTitle, mDescription , mPrice;
+    TextView mTitle, mDescription ;
     CardView mCardView;
 
     public FoodViewHolder(@NonNull View itemView) {
@@ -115,7 +113,6 @@ class FoodViewHolder extends RecyclerView.ViewHolder{
         imageView=itemView.findViewById(R.id.ivImage);
         mTitle=itemView.findViewById(R.id.tvTitle);
         mDescription=itemView.findViewById(R.id.tvDescription);
-        mPrice=itemView.findViewById(R.id.tvPrice);
 
         mCardView=itemView.findViewById(R.id.myCarView);
 

@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    to filter out recipies
     private void filter(String text) {
         ArrayList<FoodData> filteredList = new ArrayList<>();
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+//    will move to upload activity
     public void btn_uploadActivity(View view) {
         startActivity(new Intent(this, UploadRecipy.class));
     }

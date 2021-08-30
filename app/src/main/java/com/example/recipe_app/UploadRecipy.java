@@ -28,7 +28,7 @@ import java.util.Calendar;
 public class UploadRecipy extends AppCompatActivity {
 
     ImageView recipyImage;
-    EditText res_name, res_description, res_price;
+    EditText res_name, res_description;
     Uri uri;
     String imageUrl;
 
@@ -41,7 +41,7 @@ public class UploadRecipy extends AppCompatActivity {
         recipyImage=(ImageView)findViewById(R.id.iv_foodImage);
         res_name = (EditText) findViewById(R.id.txt_recipy_name);
         res_description = (EditText) findViewById(R.id.txt_recipy_description);
-        res_price=(EditText) findViewById(R.id.txt_recipy_price);
+
     }
 
     public void btnSelectimage(View view) {
@@ -70,7 +70,7 @@ public class UploadRecipy extends AppCompatActivity {
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("RecipyImage").child(uri.getLastPathSegment());
 
         ProgressDialog progressDialogue = new ProgressDialog(this);
-        progressDialogue.setMessage("Recipe Uploaded");
+        progressDialogue.setMessage("Uploading recipe...");
         progressDialogue.show();
 
 
@@ -103,14 +103,11 @@ public class UploadRecipy extends AppCompatActivity {
     }
 
 //    To store more info
-// to upload recipy under date and time reference.
-
 public void uploadRecipe(){
 
         FoodData foodData = new FoodData (
                 res_name.getText().toString(),
                 res_description.getText().toString(),
-                res_price.getText().toString(),
                 imageUrl
                 );
 

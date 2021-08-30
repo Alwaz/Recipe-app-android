@@ -27,29 +27,32 @@
 
         <TextView
             android:id="@+id/txtRecipeName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0"
-            android:gravity="end"
+            android:gravity="center"
             android:padding="10dp"
             android:text="Seekh Kebab"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
-        <TextView
-            android:id="@+id/txtRecipePrice"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:padding="20dp"
-            android:text="Rs.300"
-            android:textColor="@color/green"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtRecipeServing"-->
+<!--            android:layout_width="229dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="end"-->
+<!--            android:padding="20dp"-->
+<!--            android:text="Serving: 4"-->
+<!--            android:textColor="@color/green"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold" />-->
 
     </LinearLayout>
 
