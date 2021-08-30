@@ -9,20 +9,26 @@
 
 <!--   Search bar -->
     <EditText
+        android:id="@+id/searchText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:hint="Search Recipe..."
-        android:textSize="22sp"
-        android:layout_margin="15dp"
-        android:id="@+id/searchText"
-        />
+        android:textSize="22sp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerView"
         android:layout_below="@+id/searchText"
+        android:layout_gravity="center_horizontal"
         android:scrollbars="vertical">
+
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -30,11 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:pointerIcon="hand"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/orange"
         android:onClick="btn_uploadActivity"
-        android:src="@drawable/ic_baseline_cloud_upload_24"
-
-        android:backgroundTint="@color/design_default_color_secondary"
-
-        />
+        android:src="@drawable/upload" />
 </RelativeLayout>

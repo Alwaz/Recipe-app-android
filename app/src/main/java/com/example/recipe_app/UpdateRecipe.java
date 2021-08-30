@@ -34,8 +34,11 @@ public class UpdateRecipe extends AppCompatActivity {
     Uri uri;
     String imageUrl;
     String key, oldImageUrl;
+
     DatabaseReference databaseReference;
     StorageReference storageReference;
+
+    String recipename,recipeDescription,recipePrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +51,16 @@ public class UpdateRecipe extends AppCompatActivity {
         res_price=(EditText) findViewById(R.id.txt_recipy_price);
 
 //      To move data from one activity to another
-Bundle bundle = getIntent().getExtras();
- if(bundle!=null) {
-     Glide.with(UpdateRecipe.this).load(bundle.getString("oldImage")).into(recipyImage);
-     res_name.setText(bundle.getString("recipeNameKey"));
-     res_description.setText(bundle.getString("descriptionKey"));
-     res_price.setText(bundle.getString("priceKey"));
+       Bundle bundle = getIntent().getExtras();
+       if(bundle!=null) {
 
-     key = bundle.getString("key");
-     oldImageUrl = bundle.getString("oldImage");
+          Glide.with(UpdateRecipe.this).load(bundle.getString("oldImage")).into(recipyImage);
+          res_name.setText(bundle.getString("recipeNameKey"));
+          res_description.setText(bundle.getString("descriptionKey"));
+          res_price.setText(bundle.getString("priceKey"));
+
+          key = bundle.getString("key");
+          oldImageUrl = bundle.getString("oldImage");
  }
 
  databaseReference = FirebaseDatabase.getInstance().getReference("Recipe").child(key);
@@ -85,55 +89,51 @@ Bundle bundle = getIntent().getExtras();
 
 
     public void btnUpdateRecipe(View view) {
-        String recipename = res_name.getText().toString().trim();
-        String recipeDescription = res_description.getText().toString().trim();
-        String recipePrice = res_price.getText().toString();
-
+        recipename = res_name.getText().toString().trim();
+        recipeDescription = res_description.getText().toString().trim();
+        recipePrice = res_price.getText().toString();
 
         ProgressDialog progressDialogue = new ProgressDialog(this);
         progressDialogue.setMessage("Recipe Updating...");
         progressDialogue.show();
 
-
         storageReference = FirebaseStorage.getInstance()
                 .getReference().child("RecipeImage").child(uri.getLastPathSegment());
+
         storageReference.putFile(uri).addOnSuccessListener(taskSnapshot -> {
 
             Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
             while(!uriTask.isComplete());
             Uri urlImage =uriTask.getResult();
+
             imageUrl = urlImage.toString();
+
             uploadRecipe();
+
             progressDialogue.dismiss();
 
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialogue.dismiss();
-
-            }});
+        }).addOnFailureListener
+                (e -> {
+                    progressDialogue.dismiss();
+                });
 
     }
 
     public void uploadRecipe(){
         FoodData foodData = new FoodData (
-                res_name,
-                res_description,
-                res_price,
+                recipename,
+                recipeDescription,
+                recipePrice,
                 imageUrl
-
         );
 
       databaseReference.setValue(foodData).addOnCompleteListener(new OnCompleteListener<Void>() {
           @Override
           public void onComplete(@NonNull Task<Void> task) {
-
               StorageReference storageReferenceeNew = FirebaseStorage.getInstance().getReferenceFromUrl(oldImageUrl);
               storageReferenceeNew.delete();
               Toast.makeText(UpdateRecipe.this, "Data Updated", Toast.LENGTH_SHORT).show();
-
           }
       });
-
     }
 }

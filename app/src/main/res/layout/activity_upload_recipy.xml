@@ -14,10 +14,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:id="@+id/iv_foodImage"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/chef"
              />
 
         <EditText
@@ -51,7 +51,7 @@
             android:layout_height="60dp"
             android:text="Select Recipy"
             android:textSize="22sp"
-            android:backgroundTint="@color/design_default_color_secondary"
+            android:backgroundTint="@color/orange"
             android:textColor="@color/white"
             android:onClick="btnSelectimage"/>
 
@@ -61,7 +61,7 @@
             android:text="Upload Recipy"
             android:textSize="22sp"
             android:onClick="btnUploadRecipe"
-            android:backgroundTint="@color/design_default_color_secondary"
+            android:backgroundTint="@color/orange"
             android:textColor="@color/white"/>
 
 

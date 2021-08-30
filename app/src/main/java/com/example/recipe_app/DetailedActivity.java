@@ -41,13 +41,15 @@ public class DetailedActivity extends AppCompatActivity {
         Bundle mBundle = getIntent().getExtras();
 
         if(mBundle !=null){
+
+            RecipeName.setText(mBundle.getString("Name"));
+            RecipePrice.setText(mBundle.getString("Price"));
             foodDescription.setText(mBundle.getString("Description"));
 
 //            key from database will be stored in key
             key = mBundle.getString("keyValue");
             imgUrl = mBundle.getString("Image");
-            RecipeName.setText(mBundle.getString("RecipeName"));
-            RecipePrice.setText(mBundle.getString("price"));
+
 
 //            Glide library for image
             Glide.with(this).load(mBundle.getString("Image")).into(foodImage);

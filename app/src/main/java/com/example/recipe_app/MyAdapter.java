@@ -62,10 +62,13 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
 
            Intent intent = new Intent(mContext,DetailedActivity.class);
            intent.putExtra("Image", myFoodList.get(holder.getBindingAdapterPosition()).getItemImage());
+           intent.putExtra("Name",myFoodList.get(holder.getBindingAdapterPosition()).getItemName());
+           intent.putExtra("Price", myFoodList.get(holder.getBindingAdapterPosition()).getItemPrice());
            intent.putExtra("Description", myFoodList.get(holder.getBindingAdapterPosition()).getItemDescription());
 
            intent.putExtra("keyValue",
                    myFoodList.get(holder.getBindingAdapterPosition()).getKey());
+
            mContext.startActivity(intent);
        });
 
@@ -73,6 +76,7 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
 
     }
 
+//   For Animation
     public void setAnimation(View viewToAnimate, int position){
         if(position > lastPosition){
 
@@ -91,6 +95,7 @@ public class MyAdapter extends  RecyclerView.Adapter<FoodViewHolder>{
         return myFoodList.size();
     }
 
+//    Search filtered recipies
     public void filteredList(ArrayList<FoodData> filteredList) {
       myFoodList = filteredList;
       notifyDataSetChanged();

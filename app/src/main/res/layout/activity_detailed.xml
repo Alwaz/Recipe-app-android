@@ -4,47 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".DetailedActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/ivImage2"
         android:src="@drawable/seekhkebab"
         />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        >
+
+        <TextView
+            android:id="@+id/txtRecipeName"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0"
+            android:gravity="end"
+            android:padding="10dp"
+            android:text="Seekh Kebab"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtRecipePrice"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:padding="20dp"
+            android:text="Rs.300"
+            android:textColor="@color/green"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Seekh Kebab"
-        android:padding="20dp"
-        android:id="@+id/txtRecipeName" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Rs.300"
-        android:padding="20dp"
-        android:id="@+id/txtRecipePrice" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="Description"
+        android:textSize="18dp"
         android:padding="20dp"
         android:id="@+id/txtDescription" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        >
+        android:layout_height="fill_parent">
 
         <Button
+            android:id="@+id/btnDelete"
             android:layout_width="140dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
@@ -53,16 +78,16 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:id="@+id/btnDelete"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/design_default_color_secondary"
+            android:backgroundTint="@color/orange"
             android:onClick="btnDeleteRecipe"
             android:text="Delete"
             android:textColor="@color/white"
             android:textSize="22dp" />
 
         <Button
+            android:id="@+id/btnUpdate"
             android:layout_width="140dp"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
@@ -72,9 +97,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:id="@+id/btnUpdate"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/design_default_color_secondary"
+            android:backgroundTint="@color/orange"
             android:onClick="btnUpdateRecipe"
             android:text="Update"
             android:textColor="@color/white"
