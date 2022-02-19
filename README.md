@@ -27,7 +27,7 @@ https://www.loom.com/share/54a70733a3624c90a1c9b75cb80ce34a
 
  * Java,
 * Firebase (Realtime Database) 
-* Firebase (Cloud Storage)
+* FireStore (Cloud Storage)
 
 
 
